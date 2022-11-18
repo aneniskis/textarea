@@ -11,7 +11,7 @@ const lineHeight = +window
   .getPropertyValue("line-height")
   .slice(0, -2);
 
-const setMinRow = 3.2;
+const setMinRow = 3;
 const setRows = message.setAttribute(
   "rows",
   `${
@@ -19,9 +19,13 @@ const setRows = message.setAttribute(
   }`
 );
 const minRow = +message.attributes.rows.value;
+
 let maxRow = 7;
-if (maxRow <= minRow) {
+
+if (Math.round(maxRow) <= minRow) {
   maxRow = minRow + 2;
+} else {
+  maxRow = Math.round(maxRow);
 }
 const initialHeight = message.scrollHeight;
 const maxHeight = initialHeight + (maxRow - minRow) * lineHeight;
