@@ -5,7 +5,6 @@ function rand(min, max) {
 }
 
 const message = document.getElementById("message");
-const styles = window.getComputedStyle(message);
 
 const lineHeight = +window
   .getComputedStyle(message)
